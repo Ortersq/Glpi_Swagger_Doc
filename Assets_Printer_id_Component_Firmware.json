@@ -1,0 +1,170 @@
+{
+  "/Assets/Printer/{id}/Component/Firmware": {
+    "get": {
+      "tags": [
+        "Assets",
+        "Components"
+      ],
+      "responses": {
+        "200": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/FirmwareItem"
+                }
+              }
+            },
+            "text/csv": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/FirmwareItem"
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/FirmwareItem"
+                }
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad request"
+        },
+        "401": {
+          "description": "Unauthorized"
+        },
+        "403": {
+          "description": "Forbidden"
+        },
+        "404": {
+          "description": "Not found"
+        },
+        "500": {
+          "description": "Internal server error"
+        }
+      },
+      "description": "List or search all components for an asset",
+      "parameters": [
+        {
+          "name": "filter",
+          "description": "RSQL query string",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "format": "string"
+          },
+          "example": null
+        },
+        {
+          "name": "start",
+          "description": "The first item to return",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer",
+            "format": "int64",
+            "default": 0
+          },
+          "example": null
+        },
+        {
+          "name": "limit",
+          "description": "The maximum number of items to return",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer",
+            "format": "int64",
+            "default": 100
+          },
+          "example": null
+        },
+        {
+          "name": "sort",
+          "description": "One or more properties to sort by in the form of property:direction where property is the full property name in dot notation and direction is either asc or desc.\n                                  If no direction is provided, asc is assumed. Multiple sorts can be provided by separating them with a comma.",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "format": "string"
+          },
+          "example": null
+        },
+        {
+          "name": "id",
+          "description": "",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "pattern": "\\d+"
+          }
+        },
+        {
+          "name": "GLPI-Entity",
+          "in": "header",
+          "description": "The ID of the entity to use. If not specified, the default entity for the user is used.",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "GLPI-Profile",
+          "in": "header",
+          "description": "The ID of the profile to use. If not specified, the default profile for the user is used.",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "GLPI-Entity-Recursive",
+          "in": "header",
+          "description": "\"true\" if the entity access should include child entities. This is false by default.",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "true",
+              "false"
+            ]
+          }
+        },
+        {
+          "name": "Accept-Language",
+          "in": "header",
+          "description": "The language to use for the response. If not specified, the default language for the user is used.",
+          "schema": {
+            "type": "string"
+          },
+          "examples": {
+            "English_GB": {
+              "value": "en_GB",
+              "summary": "English (United Kingdom)"
+            },
+            "French_FR": {
+              "value": "fr_FR",
+              "summary": "French (France)"
+            },
+            "Portuguese_BR": {
+              "value": "pt_BR",
+              "summary": "Portuguese (Brazil)"
+            }
+          }
+        }
+      ],
+      "security": [
+        {
+          "oauth": []
+        }
+      ]
+    }
+  }
+}

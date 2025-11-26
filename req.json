@@ -1,0 +1,600 @@
+{
+  "/{req}": {
+    "get": {
+      "tags": [],
+      "responses": {
+        "200": {
+          "description": "Never returned",
+          "content": {
+            "application/json": {
+              "schema": []
+            }
+          }
+        },
+        "404": {
+          "description": "No route found for the requested path",
+          "content": {
+            "application/json": {
+              "schema": []
+            }
+          }
+        },
+        "400": {
+          "description": "Bad request"
+        },
+        "401": {
+          "description": "Unauthorized"
+        },
+        "403": {
+          "description": "Forbidden"
+        },
+        "500": {
+          "description": "Internal server error"
+        }
+      },
+      "description": "A fallback for when no other endpoint matches the request. A 404 error will be shown.",
+      "parameters": [
+        {
+          "name": "req",
+          "description": "",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "pattern": ".*"
+          }
+        },
+        {
+          "name": "GLPI-Entity",
+          "in": "header",
+          "description": "The ID of the entity to use. If not specified, the default entity for the user is used.",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "GLPI-Profile",
+          "in": "header",
+          "description": "The ID of the profile to use. If not specified, the default profile for the user is used.",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "GLPI-Entity-Recursive",
+          "in": "header",
+          "description": "\"true\" if the entity access should include child entities. This is false by default.",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "true",
+              "false"
+            ]
+          }
+        },
+        {
+          "name": "Accept-Language",
+          "in": "header",
+          "description": "The language to use for the response. If not specified, the default language for the user is used.",
+          "schema": {
+            "type": "string"
+          },
+          "examples": {
+            "English_GB": {
+              "value": "en_GB",
+              "summary": "English (United Kingdom)"
+            },
+            "French_FR": {
+              "value": "fr_FR",
+              "summary": "French (France)"
+            },
+            "Portuguese_BR": {
+              "value": "pt_BR",
+              "summary": "Portuguese (Brazil)"
+            }
+          }
+        }
+      ],
+      "security": [
+        {
+          "oauth": []
+        }
+      ]
+    },
+    "post": {
+      "tags": [],
+      "responses": {
+        "200": {
+          "description": "Never returned",
+          "content": {
+            "application/json": {
+              "schema": []
+            }
+          }
+        },
+        "404": {
+          "description": "No route found for the requested path",
+          "content": {
+            "application/json": {
+              "schema": []
+            }
+          }
+        },
+        "201": {
+          "description": "Success (created)",
+          "headers": {
+            "Location": {
+              "description": "The URL of the newly created resource",
+              "schema": {
+                "type": "string"
+              }
+            }
+          },
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "format": "int64",
+                    "readOnly": true
+                  },
+                  "href": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad request"
+        },
+        "401": {
+          "description": "Unauthorized"
+        },
+        "403": {
+          "description": "Forbidden"
+        },
+        "500": {
+          "description": "Internal server error"
+        }
+      },
+      "description": "A fallback for when no other endpoint matches the request. A 404 error will be shown.",
+      "parameters": [
+        {
+          "name": "req",
+          "description": "",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "pattern": ".*"
+          }
+        },
+        {
+          "name": "GLPI-Entity",
+          "in": "header",
+          "description": "The ID of the entity to use. If not specified, the default entity for the user is used.",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "GLPI-Profile",
+          "in": "header",
+          "description": "The ID of the profile to use. If not specified, the default profile for the user is used.",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "GLPI-Entity-Recursive",
+          "in": "header",
+          "description": "\"true\" if the entity access should include child entities. This is false by default.",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "true",
+              "false"
+            ]
+          }
+        },
+        {
+          "name": "Accept-Language",
+          "in": "header",
+          "description": "The language to use for the response. If not specified, the default language for the user is used.",
+          "schema": {
+            "type": "string"
+          },
+          "examples": {
+            "English_GB": {
+              "value": "en_GB",
+              "summary": "English (United Kingdom)"
+            },
+            "French_FR": {
+              "value": "fr_FR",
+              "summary": "French (France)"
+            },
+            "Portuguese_BR": {
+              "value": "pt_BR",
+              "summary": "Portuguese (Brazil)"
+            }
+          }
+        }
+      ],
+      "security": [
+        {
+          "oauth": []
+        }
+      ]
+    },
+    "patch": {
+      "tags": [],
+      "responses": {
+        "200": {
+          "description": "Never returned",
+          "content": {
+            "application/json": {
+              "schema": []
+            }
+          }
+        },
+        "404": {
+          "description": "No route found for the requested path",
+          "content": {
+            "application/json": {
+              "schema": []
+            }
+          }
+        },
+        "400": {
+          "description": "Bad request"
+        },
+        "401": {
+          "description": "Unauthorized"
+        },
+        "403": {
+          "description": "Forbidden"
+        },
+        "500": {
+          "description": "Internal server error"
+        }
+      },
+      "description": "A fallback for when no other endpoint matches the request. A 404 error will be shown.",
+      "parameters": [
+        {
+          "name": "req",
+          "description": "",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "pattern": ".*"
+          }
+        },
+        {
+          "name": "GLPI-Entity",
+          "in": "header",
+          "description": "The ID of the entity to use. If not specified, the default entity for the user is used.",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "GLPI-Profile",
+          "in": "header",
+          "description": "The ID of the profile to use. If not specified, the default profile for the user is used.",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "GLPI-Entity-Recursive",
+          "in": "header",
+          "description": "\"true\" if the entity access should include child entities. This is false by default.",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "true",
+              "false"
+            ]
+          }
+        },
+        {
+          "name": "Accept-Language",
+          "in": "header",
+          "description": "The language to use for the response. If not specified, the default language for the user is used.",
+          "schema": {
+            "type": "string"
+          },
+          "examples": {
+            "English_GB": {
+              "value": "en_GB",
+              "summary": "English (United Kingdom)"
+            },
+            "French_FR": {
+              "value": "fr_FR",
+              "summary": "French (France)"
+            },
+            "Portuguese_BR": {
+              "value": "pt_BR",
+              "summary": "Portuguese (Brazil)"
+            }
+          }
+        }
+      ],
+      "security": [
+        {
+          "oauth": []
+        }
+      ]
+    },
+    "put": {
+      "tags": [],
+      "responses": {
+        "200": {
+          "description": "Never returned",
+          "content": {
+            "application/json": {
+              "schema": []
+            }
+          }
+        },
+        "404": {
+          "description": "No route found for the requested path",
+          "content": {
+            "application/json": {
+              "schema": []
+            }
+          }
+        },
+        "400": {
+          "description": "Bad request"
+        },
+        "401": {
+          "description": "Unauthorized"
+        },
+        "403": {
+          "description": "Forbidden"
+        },
+        "500": {
+          "description": "Internal server error"
+        }
+      },
+      "description": "A fallback for when no other endpoint matches the request. A 404 error will be shown.",
+      "parameters": [
+        {
+          "name": "req",
+          "description": "",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "pattern": ".*"
+          }
+        },
+        {
+          "name": "GLPI-Entity",
+          "in": "header",
+          "description": "The ID of the entity to use. If not specified, the default entity for the user is used.",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "GLPI-Profile",
+          "in": "header",
+          "description": "The ID of the profile to use. If not specified, the default profile for the user is used.",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "GLPI-Entity-Recursive",
+          "in": "header",
+          "description": "\"true\" if the entity access should include child entities. This is false by default.",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "true",
+              "false"
+            ]
+          }
+        },
+        {
+          "name": "Accept-Language",
+          "in": "header",
+          "description": "The language to use for the response. If not specified, the default language for the user is used.",
+          "schema": {
+            "type": "string"
+          },
+          "examples": {
+            "English_GB": {
+              "value": "en_GB",
+              "summary": "English (United Kingdom)"
+            },
+            "French_FR": {
+              "value": "fr_FR",
+              "summary": "French (France)"
+            },
+            "Portuguese_BR": {
+              "value": "pt_BR",
+              "summary": "Portuguese (Brazil)"
+            }
+          }
+        }
+      ],
+      "security": [
+        {
+          "oauth": []
+        }
+      ]
+    },
+    "delete": {
+      "tags": [],
+      "responses": {
+        "200": {
+          "description": "Never returned",
+          "content": {
+            "application/json": {
+              "schema": []
+            }
+          }
+        },
+        "404": {
+          "description": "No route found for the requested path",
+          "content": {
+            "application/json": {
+              "schema": []
+            }
+          }
+        },
+        "204": {
+          "description": "Success (no content)"
+        },
+        "400": {
+          "description": "Bad request"
+        },
+        "401": {
+          "description": "Unauthorized"
+        },
+        "403": {
+          "description": "Forbidden"
+        },
+        "500": {
+          "description": "Internal server error"
+        }
+      },
+      "description": "A fallback for when no other endpoint matches the request. A 404 error will be shown.",
+      "parameters": [
+        {
+          "name": "req",
+          "description": "",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "pattern": ".*"
+          }
+        },
+        {
+          "name": "GLPI-Entity",
+          "in": "header",
+          "description": "The ID of the entity to use. If not specified, the default entity for the user is used.",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "GLPI-Profile",
+          "in": "header",
+          "description": "The ID of the profile to use. If not specified, the default profile for the user is used.",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "GLPI-Entity-Recursive",
+          "in": "header",
+          "description": "\"true\" if the entity access should include child entities. This is false by default.",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "true",
+              "false"
+            ]
+          }
+        },
+        {
+          "name": "Accept-Language",
+          "in": "header",
+          "description": "The language to use for the response. If not specified, the default language for the user is used.",
+          "schema": {
+            "type": "string"
+          },
+          "examples": {
+            "English_GB": {
+              "value": "en_GB",
+              "summary": "English (United Kingdom)"
+            },
+            "French_FR": {
+              "value": "fr_FR",
+              "summary": "French (France)"
+            },
+            "Portuguese_BR": {
+              "value": "pt_BR",
+              "summary": "Portuguese (Brazil)"
+            }
+          }
+        }
+      ],
+      "security": [
+        {
+          "oauth": []
+        }
+      ]
+    },
+    "options": {
+      "tags": [],
+      "responses": {
+        "400": {
+          "description": "Bad request"
+        },
+        "401": {
+          "description": "Unauthorized"
+        },
+        "403": {
+          "description": "Forbidden"
+        },
+        "404": {
+          "description": "Not found"
+        },
+        "500": {
+          "description": "Internal server error"
+        }
+      },
+      "description": "A global route that enables the OPTIONS method on all endpoints. This responds with an Accept header indicating which methods are allowed.",
+      "parameters": [
+        {
+          "name": "req",
+          "description": "",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "pattern": ".*"
+          }
+        },
+        {
+          "name": "Accept-Language",
+          "in": "header",
+          "description": "The language to use for the response. If not specified, the default language for the user is used.",
+          "schema": {
+            "type": "string"
+          },
+          "examples": {
+            "English_GB": {
+              "value": "en_GB",
+              "summary": "English (United Kingdom)"
+            },
+            "French_FR": {
+              "value": "fr_FR",
+              "summary": "French (France)"
+            },
+            "Portuguese_BR": {
+              "value": "pt_BR",
+              "summary": "Portuguese (Brazil)"
+            }
+          }
+        }
+      ],
+      "security": [
+        {
+          "oauth": []
+        }
+      ]
+    }
+  }
+}

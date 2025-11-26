@@ -1,0 +1,131 @@
+{
+  "/Assets/Cartridge/{cartridgeitems_id}": {
+    "post": {
+      "tags": [
+        "Assets"
+      ],
+      "responses": {
+        "201": {
+          "description": "Success (created)",
+          "headers": {
+            "Location": {
+              "description": "The URL of the newly created resource",
+              "schema": {
+                "type": "string"
+              }
+            }
+          },
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "format": "int64",
+                    "readOnly": true
+                  },
+                  "href": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad request"
+        },
+        "401": {
+          "description": "Unauthorized"
+        },
+        "403": {
+          "description": "Forbidden"
+        },
+        "404": {
+          "description": "Not found"
+        },
+        "500": {
+          "description": "Internal server error"
+        }
+      },
+      "description": "Create a new Cartridge",
+      "parameters": [
+        {
+          "name": "cartridgeitems_id",
+          "description": "",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "pattern": "\\d+"
+          }
+        },
+        {
+          "name": "GLPI-Entity",
+          "in": "header",
+          "description": "The ID of the entity to use. If not specified, the default entity for the user is used.",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "GLPI-Profile",
+          "in": "header",
+          "description": "The ID of the profile to use. If not specified, the default profile for the user is used.",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "GLPI-Entity-Recursive",
+          "in": "header",
+          "description": "\"true\" if the entity access should include child entities. This is false by default.",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "true",
+              "false"
+            ]
+          }
+        },
+        {
+          "name": "Accept-Language",
+          "in": "header",
+          "description": "The language to use for the response. If not specified, the default language for the user is used.",
+          "schema": {
+            "type": "string"
+          },
+          "examples": {
+            "English_GB": {
+              "value": "en_GB",
+              "summary": "English (United Kingdom)"
+            },
+            "French_FR": {
+              "value": "fr_FR",
+              "summary": "French (France)"
+            },
+            "Portuguese_BR": {
+              "value": "pt_BR",
+              "summary": "Portuguese (Brazil)"
+            }
+          }
+        }
+      ],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Cartridge"
+            }
+          }
+        }
+      },
+      "security": [
+        {
+          "oauth": []
+        }
+      ]
+    }
+  }
+}

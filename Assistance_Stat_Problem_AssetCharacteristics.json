@@ -1,0 +1,147 @@
+{
+  "/Assistance/Stat/Problem/AssetCharacteristics": {
+    "get": {
+      "tags": [
+        "Statistics",
+        "Assistance"
+      ],
+      "responses": {
+        "200": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/AssetCharacteristicsStats"
+                }
+              }
+            },
+            "text/csv": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/AssetCharacteristicsStats"
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/AssetCharacteristicsStats"
+                }
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad request"
+        },
+        "401": {
+          "description": "Unauthorized"
+        },
+        "403": {
+          "description": "Forbidden"
+        },
+        "404": {
+          "description": "Not found"
+        },
+        "500": {
+          "description": "Internal server error"
+        }
+      },
+      "description": "Get assistance statistics by asset characteristics",
+      "parameters": [
+        {
+          "name": "date_start",
+          "description": "The start date of the statistics",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "format": "date"
+          },
+          "example": "2024-01-30"
+        },
+        {
+          "name": "date_end",
+          "description": "The end date of the statistics",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "format": "date"
+          },
+          "example": "2024-01-30"
+        },
+        {
+          "name": "field",
+          "description": "The characteristic field to group the statistics by",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "string"
+          },
+          "example": null
+        },
+        {
+          "name": "GLPI-Entity",
+          "in": "header",
+          "description": "The ID of the entity to use. If not specified, the default entity for the user is used.",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "GLPI-Profile",
+          "in": "header",
+          "description": "The ID of the profile to use. If not specified, the default profile for the user is used.",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "GLPI-Entity-Recursive",
+          "in": "header",
+          "description": "\"true\" if the entity access should include child entities. This is false by default.",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "true",
+              "false"
+            ]
+          }
+        },
+        {
+          "name": "Accept-Language",
+          "in": "header",
+          "description": "The language to use for the response. If not specified, the default language for the user is used.",
+          "schema": {
+            "type": "string"
+          },
+          "examples": {
+            "English_GB": {
+              "value": "en_GB",
+              "summary": "English (United Kingdom)"
+            },
+            "French_FR": {
+              "value": "fr_FR",
+              "summary": "French (France)"
+            },
+            "Portuguese_BR": {
+              "value": "pt_BR",
+              "summary": "Portuguese (Brazil)"
+            }
+          }
+        }
+      ],
+      "security": [
+        {
+          "oauth": []
+        }
+      ]
+    }
+  }
+}
